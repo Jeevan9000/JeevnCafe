@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — Brewnara Coffee Co.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="components.css" />
+</head>
+
+<body class="page-inner">
+
+  <!-- NAV -->
+  <header class="nav nav--scrolled" id="nav">
+    <a href="index.html" class="nav__logo"><span class="nav__logo-icon">☕</span><span>Brewnara</span></a>
+    <nav class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="menu.html" class="nav__link">Menu</a>
+      <a href="about.html" class="nav__link nav__link--active">Our Story</a>
+      <a href="contact.html" class="nav__link">Visit Us</a>
+    </nav>
+    <a href="menu.html" class="btn btn--warm">Order Now</a>
+    <div id="weather-widget" class="weather-widget"></div>
+    <button id="nav-login-btn" class="btn btn--outline nav-login-btn" onclick="openAuthModal('login')">Login</button>
+    <div id="nav-user-area" class="nav-user-area" style="display:none;position:relative">
+      <button class="nav-profile-btn" onclick="toggleProfileDropdown()">
+        <span class="nav-profile-avatar" id="nav-profile-avatar"></span>
+        <span id="nav-user-name"></span>
+        <span class="nav-profile-caret">▾</span>
+      </button>
+      <div id="profile-dropdown" class="profile-dropdown" style="display:none"></div>
+    </div>
+    <button class="nav-cart-btn" onclick="toggleCart()">🛒 <span id="cart-badge" class="cart-badge"
+        style="display:none">0</span></button>
+    <input type="checkbox" id="nav-toggle" class="nav__toggle-input" />
+    <label for="nav-toggle" class="nav__hamburger"><span></span><span></span><span></span></label>
+    <div class="nav__mobile-menu">
+      <a href="index.html">Home</a><a href="menu.html">Menu</a>
+      <a href="about.html">Our Story</a><a href="contact.html">Visit Us</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"
+      style="background-image:url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1400&q=80')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <span class="hero__eyebrow">Est. 2019</span>
+      <h1>Our Story</h1>
+      <p>From a garage roaster to the city's favourite cup.</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story section">
+    <div class="container story__inner">
+      <div class="story__text">
+        <div class="section-label">The Beginning</div>
+        <h2>Started by two friends<br />and one broken espresso machine.</h2>
+        <p>In 2019, Riya Kapoor and Dev Anand set up a second-hand La Marzocco in their Indiranagar garage and started
+          roasting Ethiopian beans on a popcorn machine. Neighbours complained about the smell — but then started
+          showing up with cups.</p>
+        <p>That garage became a stall, the stall became a café, and today Brewnara occupies a beautiful 1940s heritage
+          building on Lavelle Road, serving over 300 cups a day.</p>
+        <p>We still source directly from the same farms in Yirgacheffe. We still roast every Tuesday and Friday. And we
+          still believe that coffee is best when you know the whole story behind it.</p>
+      </div>
+      <div class="story__img-wrap">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="Barista at work" />
+        <div class="story__img-caption">
+          <span class="story__handwrite">Dev pulling shots, 2022</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline section">
+    <div class="container">
+      <div class="section-label">Our Journey</div>
+      <h2 class="section-title">Four years of growing up.</h2>
+      <div class="timeline__track">
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2019</div>
+          <div class="timeline__card">
+            <h3>The Garage Years</h3>
+            <p>First roasts in Indiranagar. 12 customers. Two roasters. Infinite optimism.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2020</div>
+          <div class="timeline__card">
+            <h3>Survived & Thrived</h3>
+            <p>Launched bean subscriptions during the pandemic. 800 subscribers in 3 months.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2021</div>
+          <div class="timeline__card">
+            <h3>The Café Opens</h3>
+            <p>Moved into our heritage Lavelle Road home. 40 seats, a real espresso bar, and a bakery corner.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2023</div>
+          <div class="timeline__card">
+            <h3>Nitro on Draft</h3>
+            <p>Installed our Nitro Cold Brew system. It sold out in 4 hours on day one.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2025</div>
+          <div class="timeline__card">
+            <h3>What's Next?</h3>
+            <p>A roastery tour programme, a second location, and more farms to visit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team section">
+    <div class="container">
+      <div class="section-label">The People</div>
+      <h2 class="section-title">The faces behind your cup.</h2>
+      <div class="team__grid">
+        <div class="team-card">
+          <div class="team-card__img-wrap">
+            <img src="https://i.pravatar.cc/300?img=5" alt="Riya Kapoor" />
+          </div>
+          <h3>Riya Kapoor</h3>
+          <span>Co-Founder &amp; Head Roaster</span>
+          <p>"Every origin tells a different story. My job is to let it speak."</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img-wrap">
+            <img src="https://i.pravatar.cc/300?img=8" alt="Dev Anand" />
+          </div>
+          <h3>Dev Anand</h3>
+          <span>Co-Founder &amp; Head Barista</span>
+          <p>"The espresso machine is my instrument. The cup is my canvas."</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card__img-wrap">
+            <img src="https://i.pravatar.cc/300?img=25" alt="Meera" />
+          </div>
+          <h3>Meera Iyer</h3>
+          <span>Head Baker</span>
+          <p>"I bake like my grandmother taught me — with full attention and no shortcuts."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Got questions?</h2>
+      <div class="faq__grid">
+        <details class="faq__item">
+          <summary>Do you offer dairy-free milk alternatives?</summary>
+          <p>Yes! We carry oat milk, almond milk, and soy milk. All plant milks are an additional ₹40 per drink.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Can I buy your beans online?</summary>
+          <p>Absolutely. We ship nationally and offer monthly subscriptions. Visit our bean shop page or DM us on
+            Instagram.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Do you take table reservations?</summary>
+          <p>For groups of 4 or more, yes! Call us or email hello@brewnara.in. Walk-ins always welcome for smaller
+            groups.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Is there WiFi and good seating for work?</summary>
+          <p>Yes — free WiFi, power sockets at every table, and very good coffee to keep you going. We ask that laptops
+            wrap up by 5 PM on weekends to free space.</p>
+        </details>
+        <details class="faq__item">
+          <summary>What's the reusable cup discount?</summary>
+          <p>Bring any clean, reusable cup and we'll knock 10% off your drink. It's our small contribution to less
+            waste.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Do you cater for corporate events?</summary>
+          <p>Yes — espresso bar pop-ups, filter coffee catering, and bean gift sets for offices. Email
+            events@brewnara.in.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">We'd love to hear from you.</h2>
+      <div class="contact__inner">
+        <div class="contact__info">
+          <div class="contact__info-item">
+            <span class="contact__info-icon">📍</span>
+            <div>
+              <strong>Address</strong>
+              <p>14, Lavelle Road, Bengaluru 560001<br />Near Koshy's Restaurant</p>
+            </div>
+          </div>
+          <div class="contact__info-item">
+            <span class="contact__info-icon">📞</span>
+            <div>
+              <strong>Phone</strong>
+              <p>+91 80 4567 8900</p>
+            </div>
+          </div>
+          <div class="contact__info-item">
+            <span class="contact__info-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <p>hello@brewnara.in</p>
+            </div>
+          </div>
+          <div class="contact__info-item">
+            <span class="contact__info-icon">🕐</span>
+            <div>
+              <strong>Hours</strong>
+              <p>Mon–Fri: 7AM–9PM<br />Sat: 8AM–10PM · Sun: 9AM–8PM</p>
+            </div>
+          </div>
+          <div class="contact__map-placeholder">
+            <div class="contact__map-inner">
+              <span>📍 Map Placeholder</span>
+              <p style="font-size:.8rem;opacity:.6">Embed Google Maps here</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact__form" action="#" method="post">
+          <h3>Send us a message</h3>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Priya Menon" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="priya@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option>General Enquiry</option>
+              <option>Table Reservation</option>
+              <option>Corporate Event</option>
+              <option>Bean Subscription</option>
+              <option>Wholesale</option>
+              <option>Press &amp; Media</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us what's on your mind…"
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn--warm btn--lg">Send Message ✦</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">☕ Brewnara</div>
+        <p>Handcrafted coffee, served with warmth.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social">ig</a>
+          <a href="#" class="footer__social">fb</a>
+          <a href="#" class="footer__social">tw</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a><a href="menu.html">Menu</a>
+        <a href="about.html">Our Story</a><a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Brewnara Coffee Co. · Bengaluru, India</p>
+    </div>
+  </footer>
+
+  <div id="cart-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:299;"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3>☕ Your Order</h3><button class="cart-drawer__close" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-drawer__body"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__total"><span>Total</span><strong id="cart-total">₹0</strong></div>
+      <button class="btn btn--warm btn--lg" style="width:100%" onclick="handleCheckout()">Place Order →</button>
+    </div>
+  </aside>
+  <div id="auth-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+    <div class="auth-modal__box">
+      <button class="auth-modal__close" onclick="closeAuthModal()">✕</button>
+      <div class="auth-modal__logo">☕ Brewnara</div>
+      <div class="auth-tabs">
+        <button class="auth-tab auth-tab--active" data-tab="login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+      <p id="auth-error" class="auth-error"></p>
+      <form id="auth-login-form">
+        <div class="form-group"><label>Email</label><input id="login-email" type="email" required /></div>
+        <div class="form-group"><label>Password</label><input id="login-password" type="password" required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Login →</button>
+        <p class="auth-switch">No account? <button type="button" onclick="switchAuthTab('register')">Register
+            free</button></p>
+      </form>
+      <form id="auth-register-form" style="display:none">
+        <div class="form-group"><label>Full Name</label><input id="reg-name" type="text" required /></div>
+        <div class="form-group"><label>Email</label><input id="reg-email" type="email" required /></div>
+        <div class="form-group"><label>Password</label><input id="reg-password" type="password" required /></div>
+        <div class="form-group"><label>Confirm Password</label><input id="reg-confirm" type="password" required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Create Account
+          →</button>
+        <p class="auth-switch">Have account? <button type="button" onclick="switchAuthTab('login')">Login</button></p>
+      </form>
+    </div>
+  </div>
+  <div id="order-confirm-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;">
+    <div class="auth-modal__box" style="text-align:center">
+      <div style="font-size:3rem">🎉</div>
+      <h2 style="font-family:var(--font-display);color:var(--cs-espresso)">Order Placed!</h2>
+      <p>Thank you, <strong id="order-confirm-name"></strong>! Total: <strong id="order-confirm-total"></strong></p>
+      <button class="btn btn--warm btn--lg" style="margin-top:1.5rem;width:100%"
+        onclick="closeOrderConfirm()">Done</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

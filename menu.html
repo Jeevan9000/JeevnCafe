@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Brewnara Coffee Co.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="components.css" />
+</head>
+
+<body class="page-inner">
+
+  <!-- NAV  -->
+  <header class="nav nav--scrolled" id="nav">
+    <a href="index.html" class="nav__logo"><span class="nav__logo-icon">☕</span><span>Brewnara</span></a>
+    <nav class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="menu.html" class="nav__link nav__link--active">Menu</a>
+      <a href="about.html" class="nav__link">Our Story</a>
+      <a href="contact.html" class="nav__link">Visit Us</a>
+    </nav>
+    <a href="#" class="btn btn--warm">Order Now</a>
+    <div id="weather-widget" class="weather-widget"></div>
+    <button id="nav-login-btn" class="btn btn--outline nav-login-btn" onclick="openAuthModal('login')">Login</button>
+    <div id="nav-user-area" class="nav-user-area" style="display:none;position:relative">
+      <button class="nav-profile-btn" onclick="toggleProfileDropdown()">
+        <span class="nav-profile-avatar" id="nav-profile-avatar"></span>
+        <span id="nav-user-name"></span>
+        <span class="nav-profile-caret">▾</span>
+      </button>
+      <div id="profile-dropdown" class="profile-dropdown" style="display:none"></div>
+    </div>
+    <button class="nav-cart-btn" onclick="toggleCart()" aria-label="Open cart">
+      🛒 <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+    </button>
+    <input type="checkbox" id="nav-toggle" class="nav__toggle-input" />
+    <label for="nav-toggle" class="nav__hamburger"><span></span><span></span><span></span></label>
+    <div class="nav__mobile-menu">
+      <a href="index.html">Home</a><a href="menu.html">Menu</a>
+      <a href="about.html">Our Story</a><a href="contact.html">Visit Us</a>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"
+      style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1400&q=80')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <span class="hero__eyebrow">What's Brewing</span>
+      <h1>Our Menu</h1>
+      <p>From the first pull of espresso to the last crumb of pastry.</p>
+    </div>
+  </section>
+
+  <!--  MENU TABS (CSS only)  -->
+  <section class="menu-page section">
+    <div class="container">
+
+      <div class="menu-tabs">
+        <input type="radio" name="menu-tab" id="tab-hot" class="menu-tab__radio" checked />
+        <input type="radio" name="menu-tab" id="tab-cold" class="menu-tab__radio" />
+        <input type="radio" name="menu-tab" id="tab-food" class="menu-tab__radio" />
+        <input type="radio" name="menu-tab" id="tab-specials" class="menu-tab__radio" />
+
+        <div class="menu-tab__labels">
+          <label for="tab-hot" class="menu-tab__label">☕ Hot Drinks</label>
+          <label for="tab-cold" class="menu-tab__label">🧊 Cold Drinks</label>
+          <label for="tab-food" class="menu-tab__label">🍽️ Food</label>
+          <label for="tab-specials" class="menu-tab__label">⭐ Specials</label>
+        </div>
+
+        <!-- HOT DRINKS -->
+        <div class="menu-tab__content" id="content-hot">
+          <div class="menu-list">
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&q=80" alt="Espresso" />
+              <div class="menu-list-item__info">
+                <h3>Single Origin Espresso</h3>
+                <p>Ethiopia Yirgacheffe · bright, floral, citrus notes</p>
+                <div class="menu-list-item__tags"><span>30ml shot</span><span>Dairy-free option</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹180</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="single-origin-espresso"
+                  onclick="Cart.addItem('single-origin-espresso','Single Origin Espresso',180,'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=300&q=80" alt="Cappuccino" />
+              <div class="menu-list-item__info">
+                <h3>Brewnara Cappuccino</h3>
+                <p>Double ristretto, microfoam, dusted cinnamon</p>
+                <div class="menu-list-item__tags"><span>240ml</span><span>Oat/Almond +₹40</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹260</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="brewnara-cappuccino"
+                  onclick="Cart.addItem('brewnara-cappuccino','Brewnara Cappuccino',260,'https://images.unsplash.com/photo-1561047029-3000c68339ca?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&q=80" alt="Cortado" />
+              <div class="menu-list-item__info">
+                <h3>Signature Cortado ⭐</h3>
+                <p>Equal parts ristretto and silky micro-foam. Our bestseller.</p>
+                <div class="menu-list-item__tags"><span>120ml</span><span>Best Seller</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹280</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="signature-cortado"
+                  onclick="Cart.addItem('signature-cortado','Signature Cortado',280,'https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1573506254958-2e24b3e41f8e?w=300&q=80" alt="Flat White" />
+              <div class="menu-list-item__info">
+                <h3>Flat White</h3>
+                <p>Velvety microfoam on a double ristretto base. Australian original.</p>
+                <div class="menu-list-item__tags"><span>180ml</span><span>Medium Roast</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹290</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="flat-white"
+                  onclick="Cart.addItem('flat-white','Flat White',290,'https://images.unsplash.com/photo-1573506254958-2e24b3e41f8e?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80" alt="Matcha" />
+              <div class="menu-list-item__info">
+                <h3>Ceremonial Matcha Latte</h3>
+                <p>Grade-A Uji Matcha whisked to order, oat milk, honey optional</p>
+                <div class="menu-list-item__tags"><span>Vegan Option</span><span>No Coffee</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹340</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="ceremonial-matcha"
+                  onclick="Cart.addItem('ceremonial-matcha','Ceremonial Matcha Latte',340,'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=300&q=80" alt="Filter" />
+              <div class="menu-list-item__info">
+                <h3>Pour-Over Filter</h3>
+                <p>Rotating single-origin. Ask your barista what's on today.</p>
+                <div class="menu-list-item__tags"><span>300ml</span><span>Light Roast</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹220</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="pour-over-filter"
+                  onclick="Cart.addItem('pour-over-filter','Pour-Over Filter',220,'https://images.unsplash.com/photo-1507133750040-4a8f57021571?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLD DRINKS -->
+        <div class="menu-tab__content" id="content-cold">
+          <div class="menu-list">
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Nitro" />
+              <div class="menu-list-item__info">
+                <h3>Nitro Cold Brew ⚡</h3>
+                <p>18-hour steeping, nitrogen-charged on draft. Smooth, dark, creamy.</p>
+                <div class="menu-list-item__tags"><span>Vegan</span><span>High Caffeine</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹320</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="nitro-cold-brew"
+                  onclick="Cart.addItem('nitro-cold-brew','Nitro Cold Brew',320,'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&q=80" alt="Iced Latte" />
+              <div class="menu-list-item__info">
+                <h3>Iced Caramel Latte</h3>
+                <p>Double espresso on ice, house-made salted caramel, whole milk</p>
+                <div class="menu-list-item__tags"><span>Oat Option</span><span>Sweet</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹310</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="iced-caramel-latte"
+                  onclick="Cart.addItem('iced-caramel-latte','Iced Caramel Latte',310,'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&q=80" alt="Cold Brew" />
+              <div class="menu-list-item__info">
+                <h3>Classic Cold Brew</h3>
+                <p>12-hour steep, served over ice. Bold and unapologetic.</p>
+                <div class="menu-list-item__tags"><span>Vegan</span><span>Strong</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹270</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="classic-cold-brew"
+                  onclick="Cart.addItem('classic-cold-brew','Classic Cold Brew',270,'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <div class="menu-list-item">
+              <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=300&q=80" alt="Smoothie" />
+              <div class="menu-list-item__info">
+                <h3>Banana Almond Smoothie</h3>
+                <p>Frozen banana, almond milk, honey, cinnamon. No coffee, pure joy.</p>
+                <div class="menu-list-item__tags"><span>Vegan</span><span>No Caffeine</span></div>
+              </div>
+              <div class="menu-list-item__actions">
+                <span class="menu-list-item__price">₹290</span>
+                <button class="btn btn--warm add-to-cart-btn" data-item-id="banana-almond-smoothie"
+                  onclick="Cart.addItem('banana-almond-smoothie','Banana Almond Smoothie',290,'https://images.unsplash.com/photo-1547592180-85f173990554?w=300&q=80')">+
+                  Add</button>
+              </div>
+            </div>
+            <!-- FOOD -->
+            <div class="menu-tab__content" id="content-food">
+              <div class="menu-list">
+                <div class="menu-list-item">
+                  <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300&q=80" alt="Croissant" />
+                  <div class="menu-list-item__info">
+                    <h3>Butter Croissant</h3>
+                    <p>In-house laminated, baked fresh daily. Best before 11 AM.</p>
+                    <div class="menu-list-item__tags"><span>Vegetarian</span><span>Morning Star</span></div>
+                  </div>
+                  <div class="menu-list-item__actions">
+                    <span class="menu-list-item__price">₹180</span>
+                    <button class="btn btn--warm add-to-cart-btn" data-item-id="butter-croissant"
+                      onclick="Cart.addItem('butter-croissant','Butter Croissant',180,'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300&q=80')">+
+                      Add</button>
+                  </div>
+                </div>
+                <div class="menu-list-item__info">
+                  <h3>Smashed Avo Toast</h3>
+                  <p>Sourdough, smashed avocado, chilli flakes, poached egg, microgreens</p>
+                  <div class="menu-list-item__tags"><span>Vegetarian</span><span>Filling</span></div>
+                </div>
+                <div class="menu-list-item__actions">
+                  <span class="menu-list-item__price">₹360</span>
+                  <button class="btn btn--warm add-to-cart-btn" data-item-id="smashed-avo-toast"
+                    onclick="Cart.addItem('smashed-avo-toast','Smashed Avo Toast',360,'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300&q=80')">+
+                    Add</button>
+                </div>
+              </div>
+              <div class="menu-list-item">
+                <img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?w=300&q=80" alt="Granola" />
+                <div class="menu-list-item__info">
+                  <h3>Açaí Granola Bowl</h3>
+                  <p>House granola, coconut yoghurt, seasonal fruit, honey drizzle</p>
+                  <div class="menu-list-item__tags"><span>Vegan</span><span>Gluten-Free Option</span></div>
+                </div>
+                <div class="menu-list-item__actions">
+                  <span class="menu-list-item__price">₹380</span>
+                  <button class="btn btn--warm add-to-cart-btn" data-item-id="acai-granola-bowl"
+                    onclick="Cart.addItem('acai-granola-bowl','Açaí Granola Bowl',380,'https://images.unsplash.com/photo-1528736235302-52922df5c122?w=300&q=80')">+
+                    Add</button>
+                </div>
+              </div>
+              <div class="menu-list-item">
+                <img src="https://images.unsplash.com/photo-1534938665420-4193effeacc4?w=300&q=80" alt="Sandwich" />
+                <div class="menu-list-item__info">
+                  <h3>Grilled Cheese Sandwich</h3>
+                  <p>Sourdough, three-cheese blend, Dijon, caramelised onion</p>
+                  <div class="menu-list-item__tags"><span>Vegetarian</span><span>Lunch</span></div>
+                </div>
+                <div class="menu-list-item__actions">
+                  <span class="menu-list-item__price">₹320</span>
+                  <button class="btn btn--warm add-to-cart-btn" data-item-id="grilled-cheese-sandwich"
+                    onclick="Cart.addItem('grilled-cheese-sandwich','Grilled Cheese Sandwich',320,'https://images.unsplash.com/photo-1534938665420-4193effeacc4?w=300&q=80')">+
+                    Add</button>
+                </div>
+              </div>
+              <div class="menu-tab__content" id="content-specials">
+                <div class="specials-banner">
+                  <h2>🌸 Monsoon Specials — July Only</h2>
+                  <p>Limited-run drinks and bites celebrating the season.</p>
+                </div>
+                <div class="menu-list">
+                  <div class="menu-list-item">
+                    <img src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=300&q=80" alt="Chai" />
+                    <div class="menu-list-item__info">
+                      <h3>Masala Brewnara Chai ☕</h3>
+                      <p>Our take on the classic — whole spice masala, our house espresso blend, oat milk</p>
+                      <div class="menu-list-item__tags"><span>Limited</span><span>Seasonal</span></div>
+                    </div>
+                    <div class="menu-list-item__actions">
+                      <span class="menu-list-item__price">₹300</span>
+                      <button class="btn btn--warm add-to-cart-btn" data-item-id="masala-chai"
+                        onclick="Cart.addItem('masala-chai','Masala Brewnara Chai',300,'https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=300&q=80')">+
+                        Add</button>
+                    </div>
+                  </div>
+                  <div class="menu-list-item">
+                    <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=300&q=80" alt="Brownie" />
+                    <div class="menu-list-item__info">
+                      <h3>Dark Chocolate Brownie</h3>
+                      <p>Fudge-dense 70% dark, walnut crunch, sea salt finish. Pairs with everything.</p>
+                      <div class="menu-list-item__tags"><span>Vegetarian</span><span>July Only</span></div>
+                    </div>
+                    <div class="menu-list-item__actions">
+                      <span class="menu-list-item__price">₹200</span>
+                      <button class="btn btn--warm add-to-cart-btn" data-item-id="dark-chocolate-brownie"
+                        onclick="Cart.addItem('dark-chocolate-brownie','Dark Chocolate Brownie',200,'https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=300&q=80')">+
+                        Add</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- end menu-tabs -->
+
+            <!-- ALLERGENS NOTE -->
+            <div class="allergens-note">
+              <strong>Allergen info:</strong> All our items may contain traces of nuts, gluten, dairy, and eggs. Please
+              inform your barista of any allergies. Prices inclusive of all taxes.
+            </div>
+
+          </div>
+  </section>
+
+  <!--  DELIVERY SECTION  -->
+  <section class="delivery section">
+    <div class="container">
+      <div class="delivery__inner">
+        <div class="delivery__text">
+          <div class="section-label">Delivery &amp; Dine-In</div>
+          <h2>Order your way.</h2>
+          <p>Dine in our cozy space, pick up at the counter, or get it delivered to your door. No minimum order for
+            delivery within 5 km.</p>
+          <div class="delivery__options">
+            <div class="delivery__option">
+              <span class="delivery__option-icon">🪑</span>
+              <div>
+                <strong>Dine In</strong>
+                <span>Table booking available for groups of 4+</span>
+              </div>
+            </div>
+            <div class="delivery__option">
+              <span class="delivery__option-icon">🛍️</span>
+              <div>
+                <strong>Takeaway</strong>
+                <span>Ready in 5 min · 10% off with reusable cup</span>
+              </div>
+            </div>
+            <div class="delivery__option">
+              <span class="delivery__option-icon">🛵</span>
+              <div>
+                <strong>Delivery</strong>
+                <span>Swiggy &amp; Zomato · Free above ₹499</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="delivery__img">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Coffee to go" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER  -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">☕ Brewnara</div>
+        <p>Handcrafted coffee, roasted with intention.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social">ig</a>
+          <a href="#" class="footer__social">fb</a>
+          <a href="#" class="footer__social">tw</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Hours</h4>
+        <p style="color:var(--cs-cream-dk);font-size:.9rem;line-height:2">Mon–Fri: 7AM–9PM<br />Sat: 8AM–10PM<br />Sun:
+          9AM–8PM</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Brewnara Coffee Co. · Bengaluru, India</p>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div id="cart-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:299;"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3>☕ Your Order</h3>
+      <button class="cart-drawer__close" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-drawer__body"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__total"><span>Total</span><strong id="cart-total">₹0</strong></div>
+      <button class="btn btn--warm btn--lg" style="width:100%" onclick="handleCheckout()">Place Order →</button>
+      <p class="cart-drawer__note">* Login required to place order</p>
+    </div>
+  </aside>
+  <!-- AUTH MODAL -->
+  <div id="auth-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+    <div class="auth-modal__box">
+      <button class="auth-modal__close" onclick="closeAuthModal()">✕</button>
+      <div class="auth-modal__logo">☕ Brewnara</div>
+      <div class="auth-tabs">
+        <button class="auth-tab auth-tab--active" data-tab="login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+      <p id="auth-error" class="auth-error"></p>
+      <form id="auth-login-form">
+        <div class="form-group"><label>Email</label><input id="login-email" type="email" placeholder="you@email.com"
+            required /></div>
+        <div class="form-group"><label>Password</label><input id="login-password" type="password" placeholder="••••••••"
+            required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Login →</button>
+        <p class="auth-switch">No account? <button type="button" onclick="switchAuthTab('register')">Register
+            free</button></p>
+      </form>
+      <form id="auth-register-form" style="display:none">
+        <div class="form-group"><label>Full Name</label><input id="reg-name" type="text" placeholder="Priya Menon"
+            required /></div>
+        <div class="form-group"><label>Email</label><input id="reg-email" type="email" placeholder="you@email.com"
+            required /></div>
+        <div class="form-group"><label>Password</label><input id="reg-password" type="password"
+            placeholder="Min 6 characters" required /></div>
+        <div class="form-group"><label>Confirm Password</label><input id="reg-confirm" type="password"
+            placeholder="Repeat password" required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Create Account
+          →</button>
+        <p class="auth-switch">Have account? <button type="button" onclick="switchAuthTab('login')">Login</button></p>
+      </form>
+    </div>
+  </div>
+  <!-- ORDER CONFIRM -->
+  <div id="order-confirm-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;">
+    <div class="auth-modal__box" style="text-align:center">
+      <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
+      <h2 style="font-family:var(--font-display);color:var(--cs-espresso);margin-bottom:.5rem">Order Placed!</h2>
+      <p>Thank you, <strong id="order-confirm-name"></strong>! Your order of <strong id="order-confirm-total"></strong>
+        is being prepared.</p>
+      <button class="btn btn--warm btn--lg" style="margin-top:1.5rem;width:100%"
+        onclick="closeOrderConfirm()">Done</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

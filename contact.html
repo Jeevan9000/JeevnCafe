@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visit Us — Brewnara Coffee Co.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="page-inner">
+
+  <header class="nav nav--scrolled" id="nav">
+    <a href="index.html" class="nav__logo"><span class="nav__logo-icon">☕</span><span>Brewnara</span></a>
+    <nav class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="menu.html" class="nav__link">Menu</a>
+      <a href="about.html" class="nav__link">Our Story</a>
+      <a href="contact.html" class="nav__link nav__link--active">Visit Us</a>
+    </nav>
+    <a href="menu.html" class="btn btn--warm">Order Now</a>
+    <div id="weather-widget" class="weather-widget"></div>
+    <button id="nav-login-btn" class="btn btn--outline nav-login-btn" onclick="openAuthModal('login')">Login</button>
+    <div id="nav-user-area" class="nav-user-area" style="display:none;position:relative">
+      <button class="nav-profile-btn" onclick="toggleProfileDropdown()">
+        <span class="nav-profile-avatar" id="nav-profile-avatar"></span>
+        <span id="nav-user-name"></span>
+        <span class="nav-profile-caret">▾</span>
+      </button>
+      <div id="profile-dropdown" class="profile-dropdown" style="display:none"></div>
+    </div>
+    <button class="nav-cart-btn" onclick="toggleCart()">🛒 <span id="cart-badge" class="cart-badge"
+        style="display:none">0</span></button>
+    <input type="checkbox" id="nav-toggle" class="nav__toggle-input" />
+    <label for="nav-toggle" class="nav__hamburger"><span></span><span></span><span></span></label>
+    <div class="nav__mobile-menu">
+      <a href="index.html">Home</a><a href="menu.html">Menu</a>
+      <a href="about.html">Our Story</a><a href="contact.html">Visit Us</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero__bg"
+      style="background-image:url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1400&q=80')"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <span class="hero__eyebrow">Come On In</span>
+      <h1>Visit Us</h1>
+      <p>14, Lavelle Road, Bengaluru. We're usually here.</p>
+    </div>
+  </section>
+
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">We'd love to hear from you.</h2>
+      <div class="contact__inner">
+        <div class="contact__info">
+          <div class="contact__info-item"><span class="contact__info-icon">📍</span>
+            <div><strong>Address</strong>
+              <p>14, Lavelle Road, Bengaluru 560001<br />Near Koshy's Restaurant</p>
+            </div>
+          </div>
+          <div class="contact__info-item"><span class="contact__info-icon">📞</span>
+            <div><strong>Phone</strong>
+              <p>+91 80 4567 8900</p>
+            </div>
+          </div>
+          <div class="contact__info-item"><span class="contact__info-icon">📧</span>
+            <div><strong>Email</strong>
+              <p>hello@brewnara.in</p>
+            </div>
+          </div>
+          <div class="contact__info-item"><span class="contact__info-icon">🕐</span>
+            <div><strong>Hours</strong>
+              <p>Mon–Fri: 7AM–9PM<br />Sat: 8AM–10PM · Sun: 9AM–8PM</p>
+            </div>
+          </div>
+          <!-- Live weather at location -->
+          <div class="contact__info-item">
+            <span class="contact__info-icon">🌤️</span>
+            <div><strong>Weather at our café right now</strong>
+              <div id="weather-widget-contact" class="weather-widget-inline"></div>
+            </div>
+          </div>
+          <div class="contact__map-placeholder">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60937.79!2d78.4738!3d17.4126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0x80c0!2sJubilee%20Hills%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1680000000000"
+              width="100%" height="200" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <form class="contact__form" id="contact-form">
+          <h3>Send us a message</h3>
+          <div id="contact-success"
+            style="display:none;background:#e8f5e9;color:#2e7d32;padding:1rem;border-radius:8px;margin-bottom:1rem;font-weight:500">
+            ✓ Message sent! We'll get back to you within 24 hours.</div>
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name"
+              placeholder="Priya Menon" required /></div>
+          <div class="form-group"><label for="email">Email Address</label><input type="email" id="email"
+              placeholder="priya@example.com" required /></div>
+          <div class="form-group"><label for="subject">Subject</label>
+            <select id="subject">
+              <option>General Enquiry</option>
+              <option>Table Reservation</option>
+              <option>Corporate Event</option>
+              <option>Bean Subscription</option>
+              <option>Wholesale</option>
+              <option>Press & Media</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" rows="5"
+              placeholder="Tell us what's on your mind…" required></textarea></div>
+          <button type="submit" class="btn btn--warm btn--lg">Send Message ✦</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">☕ Brewnara</div>
+        <p>Handcrafted coffee, served with warmth.</p>
+        <div class="footer__socials"><a href="#" class="footer__social">ig</a><a href="#"
+            class="footer__social">fb</a><a href="#" class="footer__social">tw</a></div>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">Our
+          Story</a><a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Brewnara Coffee Co. · Bengaluru, India</p>
+    </div>
+  </footer>
+
+  <!-- CART + AUTH MODALS -->
+  <div id="cart-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:299;"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3>☕ Your Order</h3><button class="cart-drawer__close" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-drawer__body"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__total"><span>Total</span><strong id="cart-total">₹0</strong></div>
+      <button class="btn btn--warm btn--lg" style="width:100%" onclick="handleCheckout()">Place Order →</button>
+      <p class="cart-drawer__note">* Login required to place order</p>
+    </div>
+  </aside>
+  <div id="auth-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+    <div class="auth-modal__box">
+      <button class="auth-modal__close" onclick="closeAuthModal()">✕</button>
+      <div class="auth-modal__logo">☕ Brewnara</div>
+      <div class="auth-tabs">
+        <button class="auth-tab auth-tab--active" data-tab="login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+      <p id="auth-error" class="auth-error"></p>
+      <form id="auth-login-form">
+        <div class="form-group"><label>Email</label><input id="login-email" type="email" required /></div>
+        <div class="form-group"><label>Password</label><input id="login-password" type="password" required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Login →</button>
+        <p class="auth-switch">No account? <button type="button" onclick="switchAuthTab('register')">Register
+            free</button></p>
+      </form>
+      <form id="auth-register-form" style="display:none">
+        <div class="form-group"><label>Full Name</label><input id="reg-name" type="text" required /></div>
+        <div class="form-group"><label>Email</label><input id="reg-email" type="email" required /></div>
+        <div class="form-group"><label>Password</label><input id="reg-password" type="password" required /></div>
+        <div class="form-group"><label>Confirm Password</label><input id="reg-confirm" type="password" required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Create Account
+          →</button>
+        <p class="auth-switch">Have account? <button type="button" onclick="switchAuthTab('login')">Login</button></p>
+      </form>
+    </div>
+  </div>
+  <div id="order-confirm-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;">
+    <div class="auth-modal__box" style="text-align:center">
+      <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
+      <h2 style="font-family:var(--font-display);color:var(--cs-espresso)">Order Placed!</h2>
+      <p>Thank you, <strong id="order-confirm-name"></strong>! Total: <strong id="order-confirm-total"></strong></p>
+      <button class="btn btn--warm btn--lg" style="margin-top:1.5rem;width:100%"
+        onclick="closeOrderConfirm()">Done</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Contact form handler — saves to localStorage
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const messages = JSON.parse(localStorage.getItem('brewnara_messages') || '[]');
+      messages.push({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        date: new Date().toISOString()
+      });
+      localStorage.setItem('brewnara_messages', JSON.stringify(messages));
+      document.getElementById('contact-success').style.display = 'block';
+      this.reset();
+    });
+
+    // Copy weather into the inline contact widget after it loads
+    document.addEventListener('DOMContentLoaded', () => {
+      // Give the main weather widget a moment to fetch, then mirror it
+      setTimeout(() => {
+        const source = document.getElementById('weather-widget');
+        const target = document.getElementById('weather-widget-contact');
+        if (source && target) target.innerHTML = source.innerHTML;
+      }, 2500);
+    });
+  </script>
+</body>
+
+</html>

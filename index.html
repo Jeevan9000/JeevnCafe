@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brewnara Coffee Co. — Sip the Story</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="components.css" />
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN  -->
+  <div class="loader" id="loader">
+    <div class="loader__cup">
+      <div class="loader__steam"></div>
+      <div class="loader__steam loader__steam--2"></div>
+      <div class="loader__steam loader__steam--3"></div>
+      <div class="loader__mug">☕</div>
+    </div>
+    <p class="loader__text">Brewing your experience…</p>
+  </div>
+
+  <!--  STICKY NAV  -->
+  <header class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">☕</span>
+      <span>Brewnara</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html" class="nav__link nav__link--active">Home</a>
+      <a href="menu.html" class="nav__link">Menu</a>
+      <a href="about.html" class="nav__link">Our Story</a>
+      <a href="contact.html" class="nav__link">Visit Us</a>
+    </nav>
+    <a href="menu.html" class="btn btn--warm">Order Now</a>
+
+    <!-- Weather widget -->
+    <div id="weather-widget" class="weather-widget"></div>
+
+    <!-- Login / User -->
+    <button id="nav-login-btn" class="btn btn--outline nav-login-btn" onclick="openAuthModal('login')">Login</button>
+    <div id="nav-user-area" class="nav-user-area" style="display:none;position:relative">
+      <button class="nav-profile-btn" onclick="toggleProfileDropdown()">
+        <span class="nav-profile-avatar" id="nav-profile-avatar"></span>
+        <span id="nav-user-name"></span>
+        <span class="nav-profile-caret">▾</span>
+      </button>
+      <div id="profile-dropdown" class="profile-dropdown" style="display:none"></div>
+    </div>
+
+    <!-- Cart icon -->
+    <button class="nav-cart-btn" onclick="toggleCart()" aria-label="Open cart">
+      🛒
+      <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+    </button>
+    <!-- Mobile hamburger (CSS only) -->
+    <input type="checkbox" id="nav-toggle" class="nav__toggle-input" />
+    <label for="nav-toggle" class="nav__hamburger">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav__mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">Our Story</a>
+      <a href="contact.html">Visit Us</a>
+      <a href="menu.html" class="btn btn--warm" style="margin-top:1rem">Order Now</a>
+    </div>
+  </header>
+
+  <!--  HERO  -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Est. 2019 · Artisan Roasters</span>
+      <h1 class="hero__headline">
+        Where every cup<br />
+        <em>tells a story</em>
+      </h1>
+      <p class="hero__sub">Hand-picked beans. Small-batch roasts. Brewed with love in the heart of the city.</p>
+      <div class="hero__ctas">
+        <a href="menu.html" class="btn btn--warm btn--lg">Explore Menu</a>
+        <a href="about.html" class="btn btn--outline btn--lg">Our Story</a>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!--  RIBBON / TICKER  -->
+  <div class="ticker">
+    <div class="ticker__track">
+      <span>☕ Single Origin Espresso</span>
+      <span>✦</span>
+      <span>🌿 Oat Milk Lattes</span>
+      <span>✦</span>
+      <span>🍞 Freshly Baked Pastries</span>
+      <span>✦</span>
+      <span>📦 Beans by Post</span>
+      <span>✦</span>
+      <span>☕ Cold Brew on Draft</span>
+      <span>✦</span>
+      <span>🌿 Seasonal Specials</span>
+      <span>✦</span>
+      <span>🍞 Avocado Toast</span>
+      <span>✦</span>
+      <span>📦 Gift Subscriptions</span>
+      <span>✦</span>
+      <!-- Duplicate for loop -->
+      <span>☕ Single Origin Espresso</span>
+      <span>✦</span>
+      <span>🌿 Oat Milk Lattes</span>
+      <span>✦</span>
+      <span>🍞 Freshly Baked Pastries</span>
+      <span>✦</span>
+      <span>📦 Beans by Post</span>
+      <span>✦</span>
+    </div>
+  </div>
+
+  <!--  FEATURES / WHY US  -->
+  <section class="features section">
+    <div class="container">
+      <div class="section-label">Why Brewnara</div>
+      <h2 class="section-title">More than coffee.<br />It's a ritual.</h2>
+      <div class="features__grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">🌍</div>
+          <h3>Ethically Sourced</h3>
+          <p>Direct-trade relationships with farmers across Ethiopia, Colombia & Sumatra. Fair pay, every harvest.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔥</div>
+          <h3>Small-Batch Roasted</h3>
+          <p>Roasted in-house every Tuesday & Friday. Peak freshness, dialed to perfection by our master roaster.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🎨</div>
+          <h3>Barista Artistry</h3>
+          <p>Every pour is a canvas. Our certified baristas bring technique and heart to each cup.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🌱</div>
+          <h3>Sustainably Packaged</h3>
+          <p>100% compostable cups, recycled packaging, and a reusable cup discount program.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  STATS  -->
+  <section class="stats">
+    <div class="stats__bg"></div>
+    <div class="container stats__inner">
+      <div class="stat">
+        <span class="stat__num">12+</span>
+        <span class="stat__label">Origins Sourced</span>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <span class="stat__num">47K</span>
+        <span class="stat__label">Happy Customers</span>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <span class="stat__num">5★</span>
+        <span class="stat__label">Avg. Rating</span>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <span class="stat__num">6</span>
+        <span class="stat__label">Years Roasting</span>
+      </div>
+    </div>
+  </section>
+
+  <!--  FEATURED MENU PREVIEW  -->
+  <section class="menu-preview section">
+    <div class="container">
+      <div class="section-label">From Our Menu</div>
+      <h2 class="section-title">Fan Favourites</h2>
+      <div class="menu-preview__grid">
+
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Cortado"
+              class="menu-card__img" />
+            <span class="menu-card__badge">Best Seller</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3>Signature Cortado</h3>
+              <span class="menu-card__price">₹280</span>
+            </div>
+            <p>Equal parts ristretto and silky micro-foam. Calm, bold, beautiful.</p>
+            <div class="menu-card__tags">
+              <span>☕ Espresso</span><span>🥛 Dairy/Oat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt="Cold Brew"
+              class="menu-card__img" />
+            <span class="menu-card__badge menu-card__badge--new">Seasonal</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3>Nitro Cold Brew</h3>
+              <span class="menu-card__price">₹320</span>
+            </div>
+            <p>18-hour steep, nitrogen-charged. Smooth, dark, and creamy without a drop of milk.</p>
+            <div class="menu-card__tags">
+              <span>🧊 Cold</span><span>⚡ Vegan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Pastry"
+              class="menu-card__img" />
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3>Butter Croissant</h3>
+              <span class="menu-card__price">₹180</span>
+            </div>
+            <p>Laminated in-house, baked fresh each morning. Shatteringly crisp outside, melt-soft inside.</p>
+            <div class="menu-card__tags">
+              <span>🥐 Bakery</span><span>🌅 Morning Pick</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80" alt="Matcha Latte"
+              class="menu-card__img" />
+            <span class="menu-card__badge menu-card__badge--hot">Popular</span>
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__top">
+              <h3>Ceremonial Matcha</h3>
+              <span class="menu-card__price">₹340</span>
+            </div>
+            <p>Grade-A Japanese matcha whisked to order with oat or almond milk.</p>
+            <div class="menu-card__tags">
+              <span>🍃 Tea</span><span>⚡ Vegan Option</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="menu-preview__cta">
+        <a href="menu.html" class="btn btn--warm btn--lg">View Full Menu →</a>
+      </div>
+    </div>
+  </section>
+
+  <!--  GALLERY  -->
+  <section class="gallery section">
+    <div class="container">
+      <div class="section-label">The Brewnara Vibe</div>
+      <h2 class="section-title">Come as you are.</h2>
+    </div>
+    <div class="gallery__grid">
+      <div class="gallery__item gallery__item--tall">
+        <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&q=80" alt="Coffee shop interior" />
+        <div class="gallery__overlay"><span>Our Space</span></div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Latte art" />
+        <div class="gallery__overlay"><span>Latte Art</span></div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Espresso" />
+        <div class="gallery__overlay"><span>The Espresso Pull</span></div>
+      </div>
+      <div class="gallery__item gallery__item--wide">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=900&q=80" alt="Coffee beans" />
+        <div class="gallery__overlay"><span>Origin Beans</span></div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=600&q=80" alt="Pastries" />
+        <div class="gallery__overlay"><span>Morning Bakes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!--  DISCOUNT BANNER  -->
+  <section class="promo section">
+    <div class="container">
+      <div class="promo__card">
+        <div class="promo__ribbon">Limited Offer</div>
+        <div class="promo__content">
+          <h2>☀️ Morning Rush Deal</h2>
+          <p>Get <strong>20% off</strong> any drink before 9 AM. Flash your phone, grab your cup, own the day.</p>
+          <div class="promo__code">
+            <span>Use code:</span>
+            <strong>EARLYBIRD20</strong>
+          </div>
+        </div>
+        <div class="promo__img-wrap">
+          <img src="https://images.unsplash.com/photo-1504627298434-2422e463f29d?w=500&q=80" alt="Morning coffee" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  TESTIMONIALS  -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-label">What People Say</div>
+      <h2 class="section-title">Words from our regulars</h2>
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">"Brewnara isn't just a coffee shop. It's where my mornings find their
+            rhythm. Best cortado in the city, hands down."</p>
+          <div class="testimonial-card__author">
+            <img src="https://i.pravatar.cc/60?img=47" alt="Priya" />
+            <div>
+              <strong>Priya Menon</strong>
+              <span>Graphic Designer</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-card--featured">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">"I've travelled across 3 continents for coffee, and Brewnara holds its own
+            against the best. The Nitro Cold Brew is life-changing."</p>
+          <div class="testimonial-card__author">
+            <img src="https://i.pravatar.cc/60?img=12" alt="Arjun" />
+            <div>
+              <strong>Arjun Nair</strong>
+              <span>Travel Blogger</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">"The ambiance is unreal. I've written two chapters of my novel here this
+            month alone. Cozy, quiet, and that smell!"</p>
+          <div class="testimonial-card__author">
+            <img src="https://i.pravatar.cc/60?img=32" alt="Ananya" />
+            <div>
+              <strong>Ananya Sharma</strong>
+              <span>Author</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  NEWSLETTER  -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <div class="newsletter__text">
+          <div class="section-label">Stay in the Loop</div>
+          <h2>Freshly roasted news,<br />straight to your inbox.</h2>
+          <p>Seasonal menus, brewing guides, early-access discounts. No spam — ever.</p>
+        </div>
+        <form class="newsletter__form" action="#" method="post">
+          <input type="email" placeholder="your@email.com" required class="newsletter__input" />
+          <button type="submit" class="btn btn--warm">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!--  STORE HOURS  -->
+  <section class="hours section">
+    <div class="container hours__inner">
+      <div class="hours__text">
+        <div class="section-label">Find Us</div>
+        <h2>Come on in.<br />We're usually open.</h2>
+        <p>📍 14, Lavelle Road, Bengaluru 560001</p>
+        <p>📞 +91 80 4567 8900</p>
+        <p>📧 hello@brewnara.in</p>
+        <a href="contact.html" class="btn btn--warm" style="margin-top:1.5rem">Get Directions →</a>
+      </div>
+      <div class="hours__table-wrap">
+        <table class="hours__table">
+          <tr>
+            <td>Monday – Friday</td>
+            <td><strong>7:00 AM – 9:00 PM</strong></td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td><strong>8:00 AM – 10:00 PM</strong></td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td><strong>9:00 AM – 8:00 PM</strong></td>
+          </tr>
+          <tr class="hours__table-holiday">
+            <td>Public Holidays</td>
+            <td><strong>10:00 AM – 6:00 PM</strong></td>
+          </tr>
+        </table>
+        <div class="hours__note">🟢 Open Now — Kitchen closes 30 min before closing time</div>
+      </div>
+    </div>
+  </section>
+
+  <!--  FOOTER  -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">☕ Brewnara</div>
+        <p>Handcrafted coffee, roasted with intention, served with warmth.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social">ig</a>
+          <a href="#" class="footer__social">fb</a>
+          <a href="#" class="footer__social">tw</a>
+          <a href="#" class="footer__social">yt</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Menu</h4>
+        <a href="menu.html">Espresso Drinks</a>
+        <a href="menu.html">Cold Brew</a>
+        <a href="menu.html">Teas &amp; Matcha</a>
+        <a href="menu.html">Bakery</a>
+        <a href="menu.html">Breakfast</a>
+      </div>
+      <div class="footer__col">
+        <h4>Discover</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html">The Roastery</a>
+        <a href="menu.html">Seasonal Menu</a>
+        <a href="#">Bean Subscriptions</a>
+        <a href="#">Gift Cards</a>
+      </div>
+      <div class="footer__col">
+        <h4>Visit</h4>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html">Store Hours</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Wholesale</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Brewnara Coffee Co. · Made with ☕ &amp; CSS · Bengaluru, India</p>
+    </div>
+  </footer>
+
+  <!--  CART DRAWER  -->
+  <div id="cart-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:299;"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3>☕ Your Order</h3>
+      <button class="cart-drawer__close" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-drawer__body"></div>
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__total">
+        <span>Total</span>
+        <strong id="cart-total">₹0</strong>
+      </div>
+      <button class="btn btn--warm btn--lg" style="width:100%" onclick="handleCheckout()">Place Order →</button>
+      <p class="cart-drawer__note">* Login required to place order</p>
+    </div>
+  </aside>
+
+  <!--  AUTH MODAL  -->
+  <div id="auth-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+    <div class="auth-modal__box">
+      <button class="auth-modal__close" onclick="closeAuthModal()">✕</button>
+      <div class="auth-modal__logo">☕ Brewnara</div>
+      <div class="auth-tabs">
+        <button class="auth-tab auth-tab--active" data-tab="login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+      <p id="auth-error" class="auth-error"></p>
+      <form id="auth-login-form">
+        <div class="form-group"><label>Email</label><input id="login-email" type="email" placeholder="you@email.com"
+            required /></div>
+        <div class="form-group"><label>Password</label><input id="login-password" type="password" placeholder="••••••••"
+            required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Login →</button>
+        <p class="auth-switch">No account? <button type="button" onclick="switchAuthTab('register')">Register
+            free</button></p>
+      </form>
+      <form id="auth-register-form" style="display:none">
+        <div class="form-group"><label>Full Name</label><input id="reg-name" type="text" placeholder="Priya Menon"
+            required /></div>
+        <div class="form-group"><label>Email</label><input id="reg-email" type="email" placeholder="you@email.com"
+            required /></div>
+        <div class="form-group"><label>Password</label><input id="reg-password" type="password"
+            placeholder="Min 6 characters" required /></div>
+        <div class="form-group"><label>Confirm Password</label><input id="reg-confirm" type="password"
+            placeholder="Repeat password" required /></div>
+        <button type="submit" class="btn btn--warm btn--lg" style="width:100%;margin-top:.5rem">Create Account
+          →</button>
+        <p class="auth-switch">Have account? <button type="button" onclick="switchAuthTab('login')">Login</button></p>
+      </form>
+    </div>
+  </div>
+
+  <!--  ORDER CONFIRM MODAL  -->
+  <div id="order-confirm-modal"
+    style="display:none;position:fixed;inset:0;background:rgba(28,15,7,.7);z-index:400;align-items:center;justify-content:center;">
+    <div class="auth-modal__box" style="text-align:center">
+      <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
+      <h2 style="font-family:var(--font-display);color:var(--cs-espresso);margin-bottom:.5rem">Order Placed!</h2>
+      <p>Thank you, <strong id="order-confirm-name"></strong>! Your order of <strong id="order-confirm-total"></strong>
+        is being prepared.</p>
+      <p style="margin-top:.5rem;color:var(--cs-warm-gray);font-size:.9rem">Estimated wait: 10–15 minutes ☕</p>
+      <button class="btn btn--warm btn--lg" style="margin-top:1.5rem;width:100%"
+        onclick="closeOrderConfirm()">Done</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
